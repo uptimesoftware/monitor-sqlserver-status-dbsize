@@ -1,0 +1,6 @@
+name=SQL Server DB Status and Size
+version=1.0
+platforms=linux windows
+description=This monitors checks SQL Server databases for status and database size
+requiresAgentScript=false
+restartCore=false
