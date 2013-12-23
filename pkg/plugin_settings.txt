@@ -1,6 +1,6 @@
-name=SQL Server DB Status and Size
+name=SQL File Space DB Status Monitor
 version=1.0
 platforms=linux windows
-description=This monitors checks SQL Server databases for status and database size
+description=This plugin connects to a MSSQL host/instance and obtains the dbstatus, dbfreespace, logfreespace parametres
 requiresAgentScript=false
 restartCore=false

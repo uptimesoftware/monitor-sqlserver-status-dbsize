@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uptime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uptimesoftware.com/erdc/erdc erdc" xmlns="http://www.uptimesoftware.com/erdc/erdc" xmlns:upt="http://www.uptimesoftware.com/erdc/erdc" version="4.0" target_grouping="other">
+	<class>SQL File Space DB Status Monitor</class>
+	<exec>com.uptimesoftware.uptime.erdc.MonitorCustomScriptRunner</exec>
+	<elements>
+		<element name="process" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options> size:40 </control_options>
+			<default_value>scripts/Monitor_MSSQL_File_Space_DB_Status/Monitor_MSSQL_File_Space_DB_Status.sh</default_value>
+			<short_description>Script Name</short_description>
+			<long_description>Name of the script/binary/process to be executed by up.time </long_description>
+			<validation_rule><alphanumeric/></validation_rule>
+			<error_message><alphanumeric>required field</alphanumeric></error_message>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='MSSQL_HOST' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Hostname</short_description>
+			<long_description>IP or hostname of the SQL machine</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='MSSQL_INSTANCE' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Instance</short_description>
+			<long_description>Named instance on the SQL host</long_description>
+			<gui_type><string/></gui_type>
+		</element>		
+		<element name='MSSQL_USER' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Username</short_description>
+			<long_description>Username &#x28;Domain//username&#x29; or sa username for the SQL instance</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='MSSQL_PASS' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Password</short_description>
+			<long_description>Password for the user already specified</long_description>
+			<gui_type><password/></gui_type>
+		</element>
+		<element name='MSSQL_PORT' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>SQL Port</short_description>
+			<long_description>Port number for MSSQL instance</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='MSSQL_MON_ACTION' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Action</short_description>
+			<long_description>Option of including or excluding the list of DBs</long_description>
+			<long_description>Option of including or excluding the list of DBs</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='MSSQL_DATABASES' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>Databases</short_description>
+			<long_description>List of DBs that need to be included or excluded</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='AGENT_PORT' parameter_type='input' data_type='string' gui_basic='0' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<validation_rule/><error_message/>
+			<short_description>uptime port</short_description>
+			<long_description>Port used by the uptime Agent</long_description>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='DBStatus' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Status</short_description>
+			<long_description>Status of the DB</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><decimal/></gui_type>
+		</element>
+		<element name='DBFreeSpaceMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>DB Free Space MB</short_description>
+			<long_description>Free space in MB avaiable in DB</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><decimal/></gui_type>
+		</element>
+		<element name='DBFreeSpacePCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>DB Free Space PCT</short_description>
+			<long_description>Free space percentage available in DB</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><decimal/></gui_type>
+		</element>
+		<element name='LogFileFreeSpaceMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Log File Free Space MB</short_description>
+			<long_description>Log file free space in MB available for the DB</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><decimal/></gui_type>
+		</element>
+		<element name='LogFileFreeSpacePCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Log File Free Space PCT</short_description>
+			<long_description>Log file free space percentage available for the DB</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><decimal/></gui_type>
+		</element>
+		<element name="timer" parameter_type="output" data_type="integer" gui_basic="0" range_type="0" units="ms">
+			<control_options>size:8</control_options>
+			<default_value/>
+			<short_description>Response time</short_description>
+			<long_description>Response time in ms</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><integer/></gui_type>
+		</element>
+	</elements>
+	<help>When running a custom script check, note that the second parameter is always the name of the assigned host. The script that's executed should output each variable on it's own line, otherwise up.time won't be able to capture the appropriate information.</help>
+</uptime>
