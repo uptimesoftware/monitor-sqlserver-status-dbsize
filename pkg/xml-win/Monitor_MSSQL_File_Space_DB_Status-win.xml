@@ -73,7 +73,7 @@
 			<control_options>size:8</control_options>
 			<default_value></default_value>
 			<validation_rule/><error_message/>
-			<short_description>uptime port</short_description>
+			<short_description>uptime Port</short_description>
 			<long_description>Port used by the uptime Agent</long_description>
 			<gui_type><string/></gui_type>
 		</element>
@@ -86,38 +86,38 @@
 			<error_message/>
 			<gui_type><decimal/></gui_type>
 		</element>
-		<element name='DBFreeSpaceMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
+		<element name='DBAllocatedSpaceLeftMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
 			<control_options>size:8</control_options>
 			<default_value></default_value>
-			<short_description>DB Free Space MB</short_description>
-			<long_description>Free space in MB avaiable in DB</long_description>
+			<short_description>DB Allocated Free Space MB</short_description>
+			<long_description>Allocated free space in MB available in DB</long_description>
 			<validation_rule/>
 			<error_message/>
 			<gui_type><decimal/></gui_type>
 		</element>
-		<element name='DBFreeSpacePCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
+		<element name='DBAllocatedSpaceLeftPCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
 			<control_options>size:8</control_options>
 			<default_value></default_value>
-			<short_description>DB Free Space PCT</short_description>
-			<long_description>Free space percentage available in DB</long_description>
+			<short_description>DB Allocated Free Space Percentage</short_description>
+			<long_description>Allocated free space percentage available in DB</long_description>
 			<validation_rule/>
 			<error_message/>
 			<gui_type><decimal/></gui_type>
 		</element>
-		<element name='LogFileFreeSpaceMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
+		<element name='LogFileAllocatedSpaceLeftMB' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units=''>
 			<control_options>size:8</control_options>
 			<default_value></default_value>
-			<short_description>Log File Free Space MB</short_description>
-			<long_description>Log file free space in MB available for the DB</long_description>
+			<short_description>Log File Allocated Free Space MB</short_description>
+			<long_description>Allocated log file free space in MB available for the DB</long_description>
 			<validation_rule/>
 			<error_message/>
 			<gui_type><decimal/></gui_type>
 		</element>
-		<element name='LogFileFreeSpacePCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
+		<element name='LogFileAllocatedSpaceLeftPCT' parameter_type='output' data_type='ranged' gui_basic='' range_type='0' units='%'>
 			<control_options>size:8</control_options>
 			<default_value></default_value>
-			<short_description>Log File Free Space PCT</short_description>
-			<long_description>Log file free space percentage available for the DB</long_description>
+			<short_description>Log File Allocated Free Space Percentage</short_description>
+			<long_description>Allocated log file free space percentage available for the DB</long_description>
 			<validation_rule/>
 			<error_message/>
 			<gui_type><decimal/></gui_type>

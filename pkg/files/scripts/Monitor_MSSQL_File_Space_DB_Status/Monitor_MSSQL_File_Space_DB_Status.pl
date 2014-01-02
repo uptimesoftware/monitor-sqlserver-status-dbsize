@@ -214,10 +214,10 @@ foreach ( keys %file ) {
 	my $db_alloc_spc_lft = $db_max_spc - $db_spc_used ; 
 	my $db_alloc_spc_lft_pct = ( $db_alloc_spc_lft / $db_max_spc ) * 100 ;
 	my $db_fr_spc_pct = ( $db_fr_spc / $db_file_size ) * 100 ;
-	printf "$db.DBFreeSpaceMB %.2f\n", $db_alloc_spc_lft ;
-	printf "$db.DBFreeSpacePCT %.2f\n", $db_alloc_spc_lft_pct ;
-#	printf "$db.DBAllocatedSpaceLeftMB %.2f\n", $db_fr_spc ;
-#	printf "$db.DBAllocatedSpaceLeftPCT %.2f\n", $db_fr_spc_pct ;
+#	printf "$db.DBFreeSpaceMB %.2f\n", $db_alloc_spc_lft ;
+#	printf "$db.DBFreeSpacePCT %.2f\n", $db_alloc_spc_lft_pct ;
+	printf "$db.DBAllocatedSpaceLeftMB %.2f\n", $db_fr_spc ;
+	printf "$db.DBAllocatedSpaceLeftPCT %.2f\n", $db_fr_spc_pct ;
 	# loop that does the file group calc ( Now its only for TLOG )
    foreach ( keys %tmp ){ # if one file group has multiple maxsize set (different drive for files situation), then add it if not same values
       my $grp = $_ ;
@@ -232,12 +232,12 @@ foreach ( keys %file ) {
       }
       my $allo_spc_lft = $maxsize - $tmp{$grp}{'s_used'} ; # DB Filegroup Allocated free space left
       my $allo_spc_lft_pct = ($allo_spc_lft / $maxsize ) * 100 ;
-      printf "$db.LogFileFreeSpaceMB %.2f\n", $allo_spc_lft if $grp =~ /TLOG/ ;
-      printf "$db.LogFileFreeSpacePCT %.2f\n", $allo_spc_lft_pct if $grp =~ /TLOG/ ;
+#     printf "$db.LogFileFreeSpaceMB %.2f\n", $allo_spc_lft if $grp =~ /TLOG/ ;
+#     printf "$db.LogFileFreeSpacePCT %.2f\n", $allo_spc_lft_pct if $grp =~ /TLOG/ ;
       my $file_grp_fr_spc = $tmp{$grp}{'fr_space'} ;
       my $file_grp_fr_spc_pct = ( $file_grp_fr_spc / $tmp{$grp}{'f_size'} ) * 100 ;
- #     printf "$db.LogFileAllocatedSpaceLeftMB %.2f\n", $file_grp_fr_spc if $grp =~ /TLOG/ ;
-#      printf "$db.LogFileAllocatedSpaceLeftPCT %.2f\n", $file_grp_fr_spc_pct if $grp =~ /TLOG/ ;
+      printf "$db.LogFileAllocatedSpaceLeftMB %.2f\n", $file_grp_fr_spc if $grp =~ /TLOG/ ;
+      printf "$db.LogFileAllocatedSpaceLeftPCT %.2f\n", $file_grp_fr_spc_pct if $grp =~ /TLOG/ ;
 	}
 }
 
